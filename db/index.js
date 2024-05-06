@@ -15,7 +15,7 @@ class DB {
 
   // TODO- Create a query to Find all employees, join with roles and departments to display their roles, salaries, departments, and managers
   findAllEmployees() {
-    return this.query();
+    return this.query('SELECT * FROM employees');
   }
 
   // TODO- Create a query to Find all employees except the given employee id
@@ -29,13 +29,17 @@ class DB {
   // BONUS- Create a query to Update the given employee's manager
 
   // TODO- Create a query to Find all roles, join with departments to display the department name
-
+  findAllRoles() {
+    return this.query('SELECT * FROM role');
+  }
   // TODO- Create a query to Create a new role
-
+  
   // BONUS- Create a query to Remove a role from the db
 
   // TODO- Create a query to Find all departments
-
+  findAllDepartments() {
+    return this.query('SELECT * FROM department');
+  }
   // BONUS- Create a query to Find all departments, join with employees and roles and sum up utilized department budget
 
   // TODO- Create a query to Create a new department

@@ -1,5 +1,6 @@
-const { prompt } = require("inquirer");
-const logo = require("asciiart-logo");
+const { prompt } = require('inquirer');
+const inquirer = require('inquirer')
+const logo = require('asciiart-logo');
 const db = require("./db");
 
 init();
@@ -17,7 +18,7 @@ function loadMainPrompts() {
   prompt([
     // TODO- Create first question user will see- "What would you like to do?"
     {
-        type: 'choices',
+        type: 'list',
         name: 'start',
         message: 'What would you like to do?',
         choices: ['Quit', 'View all departments', 'View all roles', 'View all employees', new inquirer.Separator(), 'Add a department', 'Add a role', 'Add an employee']
@@ -47,7 +48,10 @@ function loadMainPrompts() {
 
 // TODO- Create a function to View all Employees
 function viewAllEmployees() {
-
+    db.findAllEmployees().then(({rows}) => {
+        let employees = rows;
+        console.table(employees);
+    })
 }
 
 // BONUS- Create a function to View all employees that belong to a department
@@ -61,14 +65,22 @@ function viewAllEmployees() {
 // BONUS- Create a function to Update an employee's manager
 
 // TODO- Create a function to View all roles
-
+function viewAllRoles() {
+    db.findAllRoles().then(({rows}) => {
+        let role = rows;
+        console.table(role);
+    })
+}
 // TODO- Create a function to Add a role
 
 // BONUS- Create a function to Delete a role
 
 // TODO- Create a function to View all deparments
 function viewAllDepartments() {
-    
+    db.findAllDepartments().then(({rows}) => {
+        let departments = rows;
+        console.table(departments);
+    })
 }
 // TODO- Create a function to Add a department
 
