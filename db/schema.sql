@@ -10,16 +10,16 @@ CREATE DATABASE employees;
 -- TODO- write an SQL command to Create the department table
 CREATE TABLE department (
     department_id SERIAL PRIMARY KEY,
-    name VARCHAR(40) NOT NULL
+    department_name VARCHAR(40) UNIQUE NOT NULL
 );
 
 -- TODO- write an SQL command to Create the role table
 CREATE TABLE role (
     role_id SERIAL PRIMARY KEY,
-    title VARCHAR(40) NOT NULL,
-    salary INTEGER NOT NULL,
+    title VARCHAR(40) UNIQUE NOT NULL,
     department_id INTEGER NOT NULL,
-    CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES department(department_id)
+    CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES department(department_id),
+    salary INTEGER NOT NULL
 );
 -- TODO- write an SQL command to Create the employee table
 CREATE TABLE employees (

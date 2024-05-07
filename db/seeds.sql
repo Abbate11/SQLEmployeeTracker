@@ -2,7 +2,7 @@
 \c employees
 
 INSERT INTO department
-    (name)
+    (department_name)
 VALUES
   ('Parks and Recreation'),
        ('Police'),
