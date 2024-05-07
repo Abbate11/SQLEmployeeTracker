@@ -72,7 +72,31 @@ function viewAllRoles() {
     })
 }
 // TODO- Create a function to Add a role
-
+const addRole = async () => {
+  let { rows } = await findAllDepartments();
+  const departments = rows.map(({department_name, department_id}) => ({
+    name: department_name,
+    value: department_id
+  }))
+  let {newRole, newSalary, department} = await prompt([
+      {
+        type: 'input',
+        name: 'newRole',
+        message: 'What is the new role called?'
+      },
+      {
+        type: 'input',
+        name: 'newSalary',
+        message: 'What will the salary be for the new role?'
+      },
+      {
+        type: 'list',
+        name: 'department',
+        message: 'What department does the new role belong to?',
+        choices: departments
+      }
+  ]);
+}
 // BONUS- Create a function to Delete a role
 
 // TODO- Create a function to View all deparments
@@ -83,6 +107,18 @@ function viewAllDepartments() {
     })
 }
 // TODO- Create a function to Add a department
+const addDepartment = async () => {
+  let {newDepartment} = await prompt([
+      {
+        type: 'input',
+        name: 'newDepartment',
+        message: 'What would you like to call this new Department?'
+      }
+  ])
+ let { rows } = await db.inputDepartment(newDepartment);
+ console.log('Department added')
+ loadMainPrompts();
+};
 
 // BONUS- Create a function to Delete a department
 
