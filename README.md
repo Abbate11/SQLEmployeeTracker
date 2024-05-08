@@ -4,6 +4,8 @@
   
   ## Description
 
+  Demo Link: https://drive.google.com/file/d/1fL_aKymYzNQAV8V3ksjap0UGvvs_KKYP/view?usp=drive_link
+
   This project is a command-line application built using Node.js and PostgreSQL, aimed at simplifying employee management tasks for businesses. The application provides a user-friendly interface for users to interact with the employee database, offering various functionalities such as viewing departments, roles, and employees, adding new departments, roles, and employees, as well as updating employee roles.
 
   ## Table of Contents
