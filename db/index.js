@@ -27,6 +27,9 @@ class DB {
   // BONUS- Create a query to Remove an employee with the given id
 
   // TODO- Create a query to Update the given employee's role
+  updateEmployeeRole(first_name, last_name, role_id) {
+    return this.query(`UPDATE employees set employee.role_id WHERE first_name = ()`)
+  }
 
   // BONUS- Create a query to Update the given employee's manager
 

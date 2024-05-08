@@ -68,13 +68,25 @@ const updateEmployee = async () => {
   const employees = rows.map(({ employee_id, first_name, last_name }) => ({
     name: `${first_name} ${last_name}`,
     value: employee_id
+  })) 
+  let { roles } = await db.findAllRoles();
+  const roleChoices = roles.map(({ role_id, title}) => ({
+    name: role_id,
+    value: title
   }))
+  
   let { employee_id, update_item, update_info } = await prompt([
     {
       type: 'list',
       name: 'employee_id',
       messsage: `Which employee's role would you like to update`,
       choices: employees
+    },
+    {
+      type: 'list',
+      name: 'select',
+      message: `Select the employee's new role`,
+      choices: roles
     }
   ])
 }
