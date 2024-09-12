@@ -7,13 +7,13 @@ CREATE DATABASE employees;
 -- Connect to the database
 \c employees
 
--- TODO- write an SQL command to Create the department table
+-- write an SQL command to Create the department table
 CREATE TABLE department (
     department_id SERIAL PRIMARY KEY,
     department_name VARCHAR(40) UNIQUE NOT NULL
 );
 
--- TODO- write an SQL command to Create the role table
+-- write an SQL command to Create the role table
 CREATE TABLE role (
     role_id SERIAL PRIMARY KEY,
     title VARCHAR(40) UNIQUE NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE role (
     CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES department(department_id),
     salary DECIMAL NOT NULL
 );
--- TODO- write an SQL command to Create the employee table
+-- write an SQL command to Create the employee table
 CREATE TABLE employees (
     employee_id SERIAL PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
